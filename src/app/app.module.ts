@@ -6,13 +6,15 @@ import { CheckComponent } from './component/check/check.component';
 import { CrossComponent } from './component/cross/cross.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GameboardComponent } from './component/gameboard/gameboard.component';
+import { SquareComponent } from './component/square/square.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CheckComponent,
     CrossComponent,
-    GameboardComponent
+    GameboardComponent,
+    SquareComponent
   ],
   imports: [
     BrowserModule,

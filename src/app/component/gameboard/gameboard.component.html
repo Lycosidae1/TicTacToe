@@ -1,1 +1,7 @@
-<h1>vag</h1>
+<div class="main-container">
+    <div *ngFor="let nRows of this.GameSizeRow; let i = index"> 
+        <div *ngFor="let nColumns of this.GameSizeColumn; let i = index" class="square-container">
+            <app-square></app-square>
+        </div>
+    </div>
+</div>
