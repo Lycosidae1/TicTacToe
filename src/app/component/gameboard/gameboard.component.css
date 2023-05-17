@@ -1,7 +1,4 @@
-.main-container{
-    display: flex;
-}
-
 .square-container{
-
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
 }

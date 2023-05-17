@@ -1,1 +1,4 @@
-<div class="square"></div>
+<button class="square empty" *ngIf="value == null"></button>
+<button class="square cross" *ngIf="value == 'X'">{{ value }}</button>
+<button class="square circle" *ngIf="value == 'O'">{{ value }}</button>
+
