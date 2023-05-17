@@ -1,12 +1,11 @@
-<div>Player {{ this.currentPlayer }}'s turn</div>
-<div class="square-container">
-    <app-square 
-        *ngFor="let square of GameSquare; let i = index" 
-        [value]="square"
-        (click)="addShape(i)">
-    </app-square>
+<div>
+    <div>Player {{ this.currentPlayer }}'s turn</div>
+    <div class="square-container">
+        <app-square 
+            *ngFor="let square of GameSquare; let i = index" 
+            [value]="square"
+            (click)="addShape(i)">
+        </app-square>
+    </div>
 </div>
-
-
-
 
