@@ -1,0 +1,30 @@
+{
+    "ts-node": {
+        // Do not forget to `npm i -D tsconfig-paths`
+        "require": ["tsconfig-paths/register"]
+    },
+    "compilerOptions": {
+        "baseUrl": "./",
+        "target": "es6",
+        "types": ["reflect-metadata", "@types/mocha", "mocha"],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "out",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": true,
+        "noImplicitReturns": true,
+        "strictNullChecks": true,
+        "paths": {
+            "@app/*": ["./app/*"],
+            "@common/*": ["../common/*"],
+        }
+    },
+    // "references": [
+    //     { "path": "../common" }
+    // ]
+}
