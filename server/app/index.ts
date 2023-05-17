@@ -5,9 +5,7 @@ import { Container } from 'typedi';
 
 (async () => {
     const server: Server = Container.get(Server);
-
     await server.setupDatabase();
-
     server.init();
 })();
 

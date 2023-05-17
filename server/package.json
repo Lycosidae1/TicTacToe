@@ -45,7 +45,7 @@
         "instrument": true
     },
     "_moduleAliases": {
-        "@app": "out/app/app",
+        "@app": "out/server/app",
         "@common": "out/common"
     },
     "dependencies": {

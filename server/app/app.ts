@@ -6,8 +6,8 @@ import { join } from 'path';
 import { Container, Service } from 'typedi';
 import { BaseController } from './controllers/base-controller';
 import { errorHandler } from './middlewares/error-handler';
-import { ClassType} from './routes/routes.module';
-import { HttpException } from 'http-exception';
+import { CONTROLLERS, ClassType} from './routes/routes.module';
+import { HttpException } from '@app/http-exception';
 
 @Service()
 export class Application {
@@ -38,7 +38,7 @@ export class Application {
         this.app.use(express.urlencoded({ limit: '10MB', parameterLimit: 100000, extended: true }));
         this.app.use(cors());
         // TODO 
-        // this.bindRoutes(PUBLIC_CONTROLLERS);
+        this.bindRoutes(CONTROLLERS);
 
         this.errorHandling();
     }

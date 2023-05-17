@@ -9,7 +9,7 @@ const env = cleanEnv(process.env, {
     PORT: num({ default: 3000 }),
 
     CORS: str({ default: '*' }),
-    SERVER_URL: str({ example: 'http://localhost:3000' }),
+    // SERVER_URL: str({ example: 'http://localhost:3000' }),
 
     //TODO DB
     // PG_HOST: str({ example: 'localhost' }),

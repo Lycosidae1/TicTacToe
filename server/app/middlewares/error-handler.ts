@@ -1,7 +1,7 @@
 import { ErrorResponse } from '@common/models/error';
-import { env } from 'environment';
+import { env } from '@app/environment';
 import * as express from 'express';
-import { HttpException } from 'http-exception';
+import { HttpException } from '@app/http-exception';
 import { getReasonPhrase, StatusCodes } from 'http-status-codes';
 
 // eslint-disable-next-line no-unused-vars
