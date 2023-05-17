@@ -10,8 +10,7 @@ export class GameboardComponent implements OnInit {
   currentPlayer: string;
   isPlayerXNext: boolean;
   winner: boolean;
-  row: string[3][3];
-  column: string[3][3];
+  gameSize = 3;
 
   get GameSquare() {
     return this.square;
@@ -19,8 +18,6 @@ export class GameboardComponent implements OnInit {
 
   ngOnInit() {
     this.square = Array(9).fill(null);
-    // this.row = Array(3).fill(null);
-    // this.column = Array(3).fill(null);
     this.currentPlayer = 'X';
     this.isPlayerXNext = false;
     this.winner = false;
@@ -33,32 +30,71 @@ export class GameboardComponent implements OnInit {
   addShape(squareChosen: number) {
     if (this.square[squareChosen] == null) {
       this.square[squareChosen] = this.currentPlayer;
+      if(this.hasAWinner()) {
+        console.log('Sheeesh');
+        this.currentPlayer = 'WINNER!!!!!';
+        return;
+      }
       this.isPlayerXNext = this.currentPlayer == 'X' ? false : true;
       this.setCurrentPlayer();
-    }  
+    }
   }
 
-  checkWinner() {
-    this.winner  = this.checkRow();
+  hasAWinner(): boolean {
+    return this.checkRows() || this.checkColumns() || this.checkDiagonal1() || this.checkDiagonal2();
   }
 
-  checkRow(): boolean {
-    let verify: number = 0;
-    let currentValue: string = '';
-    for(let i: number = 0; i <= this.row.length; i++) {
-      for(let j: number = 0; j <= this.row[i].length; j++) {
-        if (this.row[i][j] != null) {
-          currentValue = this.square[i];
-          verify++;
-          if (verify == 3) return true;
+  checkRows(): boolean {
+    for(let i = 0; i <= this.gameSize; i++) {
+      for(let j = 0; j <= this.gameSize; j++) {
+        if(this.square[(i*this.gameSize)+j] !== this.currentPlayer) {
+          break;
+        }
+        if(j === this.gameSize-1) {
+          return true;
         }
       }
-      verify = 0;
+
     }
     return false;
   }
 
-  checkColumn(): boolean {
+  checkColumns(): boolean {
+    for(let i = 0; i <= this.gameSize; i++) {
+      for(let j = 0; j <= this.gameSize; j++) {
+        if(this.square[(j*this.gameSize)+i] !== this.currentPlayer) {
+          break;
+        }
+        if(j === this.gameSize-1) {
+          return true;
+        }
+      }
+
+    }
     return false;
   }
+
+  checkDiagonal1(): boolean {
+    for(let i = 0; i < this.gameSize; i++) {
+      
+      if(this.square[(this.gameSize + 1) * i] !== this.currentPlayer) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  checkDiagonal2(): boolean {
+    for(let i = 1; i <= this.gameSize; i++) {
+      console.log((this.gameSize - 1) * i);
+      if(this.square[(this.gameSize - 1) * i] !== this.currentPlayer) {
+        return false;
+      }
+    }
+    return true;
+  }
+
 }
+
+
+
